@@ -6426,10 +6426,12 @@
    .chat-msg-wrapper[data-consecutive] > .flex-col.items-center.shrink-0 { opacity: 0; pointer-events: none; }
 */
 
-/* ── In-call volume control (top-right, self-positioned, glass) ── */
+/* ── In-call volume control (top-left, self-positioned, glass) ──
+   往下让出一截给左上角的缩小/返回键（.call-back-btn 占了同样的左上角位），
+   避免两者在通话界面里重叠。 */
 .call-volume {
   position: absolute;
-  top: calc(env(safe-area-inset-top, 0px) + 12px);
+  top: calc(max(14px, env(safe-area-inset-top, 0px)) + 46px);
   left: 12px;
   z-index: 40;
   display: flex;
